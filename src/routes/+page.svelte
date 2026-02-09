@@ -30,29 +30,27 @@
 <div class="dashboard-root">
   <div class="navBar">
     <h1>Telemetry Dashboard</h1>
-        <button class="fetch-button" on:click={fetchTelemetry}>Fetch Data
-          <span class="disclaimer">Note that data is refreshed every minute</span>
-        </button>
+    <div class="status-container">
+      <p class="pulse-dot">{isActive ? "Active" : "Inactive"}</p>
+        <span class="disclaimer">Data is fetched automatically every minute</span>
+    </div>
   </div>
   <div class=data-container>
-    <div class="data-overview">
-      <h2>Overview</h2>
-      <p>Quick glance at the latest telemetry data.</p>
-    </div>
-    <div class="data-display">
-      <p><strong>Latitude:</strong> {lat}</p>
-      <p><strong>Longitude:</strong> {lon}</p>
-      <p><strong>Speed:</strong> {speed} m/s</p>
-      <p><strong>Altitude:</strong> {alt} m</p>
-      <p><strong>Used Satellites:</strong> {usedSats}</p>
-      <p><strong>Time:</strong> {time}</p>
-      <p class="pulse-dot"><strong>Status:</strong> {isActive ? "Active" : "Inactive"}</p>
-    </div>
     <div class="data-map">
       <!-- Map or additional data visualization can go here -->
     </div>
-    <div class="data-logs">
-      <!-- Logs or historical data can go here -->
+    <div class="general-data">
+      <div class="data-display">
+        <p><strong>Latitude:</strong> {lat}</p>
+        <p><strong>Longitude:</strong> {lon}</p>
+        <p><strong>Speed:</strong> {speed} m/s</p>
+        <p><strong>Altitude:</strong> {alt} m</p>
+        <p><strong>Used Satellites:</strong> {usedSats}</p>
+        <p><strong>Time:</strong> {time}</p>
+      </div>
+      <div class="data-logs">
+        <!-- Logs or historical data can go here -->
+      </div>
     </div>
   </div>
 </div>
@@ -107,32 +105,23 @@
     justify-content: start;
   }
 
-  .fetch-button {
-    background-color: #3b82f6; /* Blue-500 */
+  .status-container {
+    background-color: #394a63;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     cursor: pointer;
     position: relative;
-
-
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-family: sans-serif;
-    font-size: 16px;
-    display: flex;
+    display:inline-flex;
     align-items: center;
-    transition: all 0.3s ease;
   }
-  .fetch-button:hover {
-    background-color: #2563eb; /* Blue-600 */
+  .status-container:hover {
+    background-color: #415c85;
   }
 
-  .fetch-button:hover .disclaimer {
-    max-width: 300px;
+  .status-container:hover .disclaimer {
+    max-width: 400px;
     opacity: 1;
     margin-left: 10px;
   }
@@ -146,6 +135,4 @@
     font-size: 14px;
     margin-left: 0;
   }
-
-
 </style>
