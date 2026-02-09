@@ -29,10 +29,12 @@
 
 <div class="dashboard-root">
   <div class="navBar">
-    <h1>Telemetry Dashboard</h1>
-    <div class="status-container">
-      <p class="pulse-dot">{isActive ? "Active" : "Inactive"}</p>
-        <span class="disclaimer">Data is fetched automatically every minute</span>
+    <div class="main-title">
+      <h1>Telemetry Dashboard</h1>
+      <span class="disclaimer">Data is fetched automatically every minute</span>
+    </div>
+    <div class="status">{isActive ? "Active" : "Inactive"}
+     <!-- <p class="pulse-dot"></p> -->
     </div>
   </div>
   <div class=data-container>
@@ -62,6 +64,8 @@
     color: #f8fafc;
     font-family: 'Segoe UI', Roboto, sans-serif;
     overflow: hidden;
+    cursor: default;
+    user-select: none; 
   }
 
   .dashboard-root {
@@ -82,11 +86,40 @@
     justify-content: space-between;
   }
 
-  .navBar h1 {
-    margin: 0;
-    font-size: 1.5rem;
+  .main-title {
+    background-color: #242f40;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    position: relative;
+    display:inline-flex;
+    align-items: center;
   }
   
+  .main-title:hover {
+    background-color: #3b4d68;
+  }
+
+  .main-title:hover .disclaimer {
+    max-width: 400px;
+    opacity: 1;
+    margin-left: 10px;
+  }
+
+  .disclaimer {
+    max-width: 0;
+    opacity: 0;
+    font-size: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: all 0.4s ease;
+    margin-left: 0;
+    color: aliceblue;
+  }
+
   .data-container {
     display: grid;
     grid-template-columns: 2fr 1fr; /* 2/3 width for speed */
@@ -96,43 +129,31 @@
     margin-top: 1rem;
   }
 
+  .general-data {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-self: right;
+  }
+
   .data-display {
     background-color: #334155; /* Slate-700 */
     padding: 1rem;
     border-radius: 0.5rem;
     display: grid;
     gap: 0.5rem;
-    justify-content: start;
+    justify-content: center;
+    justify-self: center;
+    max-width: max-content;
+    padding: 2rem 5rem;
   }
 
-  .status-container {
-    background-color: #394a63;
+  .status {
+    background-color: #334258;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
-    cursor: pointer;
-    position: relative;
-    display:inline-flex;
-    align-items: center;
-  }
-  .status-container:hover {
-    background-color: #415c85;
   }
 
-  .status-container:hover .disclaimer {
-    max-width: 400px;
-    opacity: 1;
-    margin-left: 10px;
-  }
-
-  .disclaimer {
-    max-width: 0;
-    opacity: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    transition: all 0.4s ease;
-    font-size: 14px;
-    margin-left: 0;
-  }
 </style>
