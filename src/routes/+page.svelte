@@ -28,7 +28,7 @@
 </script>
 
 <div class="dashboard-root">
-  <div class="navBar">
+  <div class="nav-bar">
     <div class="main-title">
       <h1>Telemetry Dashboard</h1>
       <span class="disclaimer">Data is fetched automatically every minute</span>
@@ -43,6 +43,7 @@
     </div>
     <div class="general-data">
       <div class="data-display">
+        <h1><strong><centre>Telemetry Data</centre></strong></h1>
         <p><strong>Latitude:</strong> {lat}</p>
         <p><strong>Longitude:</strong> {lon}</p>
         <p><strong>Speed:</strong> {speed} m/s</p>
@@ -51,7 +52,9 @@
         <p><strong>Time:</strong> {time}</p>
       </div>
       <div class="data-logs">
-        <!-- Logs or historical data can go here -->
+        <h1><strong><centre>Telemetry log</centre></strong></h1>
+        <!-- some .js thingy to store the logs -->
+        <p>ur ur ur</p>
       </div>
     </div>
   </div>
@@ -60,7 +63,7 @@
 <style>
   :global(body) {
     margin: 0;
-    background-color: #020617; /* Slate-950 */
+    background-color: #020617;
     color: #f8fafc;
     font-family: 'Segoe UI', Roboto, sans-serif;
     overflow: hidden;
@@ -76,8 +79,8 @@
     box-sizing: border-box;
   }
   
-  .navBar {
-    background-color: #1e293b; /* Slate-800 */
+  .nav-bar {
+    background-color: #1e293b;
     padding: 1rem;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
@@ -122,38 +125,73 @@
 
   .data-container {
     display: grid;
-    grid-template-columns: 2fr 1fr; /* 2/3 width for speed */
-    grid-template-rows: 1fr 1fr;
-    gap: 1rem;
+    grid-template-columns: 2fr 0.75fr;
+    gap: 1.25rem;
     flex-grow: 1;
     margin-top: 1rem;
   }
 
   .general-data {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    justify-self: right;
+    display:grid;
+    grid-template-rows: 0.5fr 1fr;
   }
 
   .data-display {
-    background-color: #334155; /* Slate-700 */
-    padding: 1rem;
+    background-color: #2d3a4b;
     border-radius: 0.5rem;
-    display: grid;
-    gap: 0.5rem;
-    justify-content: center;
-    justify-self: center;
-    max-width: max-content;
-    padding: 2rem 5rem;
+    padding: 2rem 0.75rem;
+    width: 100%;
+    height: 100%;
+  }
+
+  .data-display h1 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #f8fafc;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .data-display p {
+    margin: 0.25rem 0;
+    font-size: 1.1rem;
   }
 
   .status {
-    background-color: #334258;
+    background-color: #2d3a4b;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
+  }
+
+  .data-map {
+    background-color: #2d3a4b;
+    border-radius: 0.5rem;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .data-logs {
+    background-color: #2d3a4b;
+    border-radius: 0.5rem;
+    padding: 2rem 0.75rem;
+    height: 96.5%;
+    width: 100%;
+    margin-top: 3.5%
+  }
+
+  .data-logs h1 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #f8fafc;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .data-logs p {
+    margin: 0.25rem 0;
+    font-size: 1.1rem;
   }
 
 </style>
