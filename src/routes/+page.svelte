@@ -2,17 +2,18 @@
   import { onMount } from 'svelte';
 
   // 1. This is the "Cargo Container" for your data
-  let rawData = "0,0,0,0,0,0:0:0,0"; // Default state
+  let rawData = "0,0,0,0,0,0,0:0:0,0"; // Default state
   
   // 2. Reactive variables (they update automatically when rawData changes)
   $: parts = rawData.split(',');
-  $: lat = parts[0];
-  $: lon = parts[1];
+  $: latitude = parts[0];
+  $: longitude = parts[1];
   $: speed = parts[2];
-  $: alt = parts[3];
+  $: altitude = parts[3];
   $: usedSats = parts[4];
-  $: time = parts[5];
-  $: isActive = parts[6] === "1";
+  $: accuracy = parts[5]
+  $: time = parts[6];
+  $: isActive = parts[7] === "1";
 
   // 3. The "Fetcher" - we will point this at your PHP file soon
   async function fetchTelemetry() {
@@ -44,10 +45,11 @@
     <div class="general-data">
       <div class="data-display">
         <h1><strong><centre>Telemetry Data</centre></strong></h1>
-        <p><strong>Latitude:</strong> {lat}</p>
-        <p><strong>Longitude:</strong> {lon}</p>
+        <p><strong>Latitude:</strong> {latitude}</p>
+        <p><strong>Longitude:</strong> {longitude}</p>
+        <p><strong>Altitude:</strong> {altitude} m</p>
         <p><strong>Speed:</strong> {speed} m/s</p>
-        <p><strong>Altitude:</strong> {alt} m</p>
+        <p><strong>Accuracy:</strong> {accuracy}</p>
         <p><strong>Used Satellites:</strong> {usedSats}</p>
         <p><strong>Time:</strong> {time}</p>
       </div>
