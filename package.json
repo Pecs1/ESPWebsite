@@ -1,7 +1,7 @@
 {
 	"name": "esp-web",
 	"private": true,
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
@@ -28,6 +28,9 @@
 		"vite": "^7.3.1"
 	},
 	"dependencies": {
-		"leaflet": "^1.9.4"
+		"leaflet": "^1.9.4",
+		"d3-scale": "^4.0.2",
+		"d3-scale-chromatic": "^3.1.0",
+		"just-flush": "^2.3.0"
 	}
 }
