@@ -2,8 +2,8 @@
 	import Map from '$lib/Map.svelte';
 	import Raw from '$lib/Raw.svelte';
 
-	let latitude;
-	let longitude;
+	let latitude: number;
+	let longitude: number;
 	let speed;
 	let altitude;
 	let usedSats;
