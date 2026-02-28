@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Map from '$lib/Map.svelte';
 	import Raw from '$lib/Raw.svelte';
+	import Geolocation from '$lib/Geolocation.svelte';
 
 	let latitude: number;
 	let longitude: number;
@@ -10,18 +11,22 @@
 	let accuracy;
 	let time;
 	let isActive;
+
+	let sharedView;
 </script>
 
 <Raw
-	bind:latitude
-	bind:longitude
-	bind:speed
-	bind:altitude
-	bind:usedSats
-	bind:accuracy
-	bind:time
-	bind:isActive
+	bind:latitude={latitude}
+	bind:longitude={longitude}
+	bind:speed={speed}
+	bind:altitude={altitude}
+	bind:usedSats={usedSats}
+	bind:accuracy={accuracy}
+	bind:time={time}
+	bind:isActive={isActive}
 />
+
+<Geolocation bind:initialView={sharedView} />
 
 <div class="dashboard-root">
 	<div class="nav-bar">
@@ -36,7 +41,7 @@
 	</div>
 	<div class="data-container">
 		<div class="data-map">
-			<Map />
+			<Map initialView={sharedView} />
 		</div>
 		<div class="general-data">
 			<div class="data-display">

@@ -20,6 +20,7 @@
 	//	import MapToolbar from './MapToolbar.svelte';
 	import { scaleSequential } from 'd3-scale';
 	import { interpolateRainbow } from 'd3-scale-chromatic';
+
 	let map;
 
 	const markerLocations = [
@@ -41,7 +42,7 @@
 		};
 	});
 
-	const initialView = [39.8283, -98.5795];
+	export let initialView;
 
 	let eye = true;
 	let showLines = true;
@@ -52,9 +53,10 @@
 		}
 	}
 
-	function resetMapView() {
-		map.setView(initialView, 5);
-	}
+	$: if (map && initialView) {
+        // This forces Leaflet to fly to the new coordinates
+        map.setView(initialView, map.getZoom()); 
+    }
 </script>
 
 <svelte:window on:resize={resizeMap} />
@@ -67,7 +69,7 @@
 	crossorigin=""
 />
 
-<Leaflet bind:map view={initialView} zoom={4}>
+<Leaflet bind:map view={initialView} zoom={10}>
 	{#if eye}
 		{#each markerLocations as latLng}
 			<Marker {latLng} width={30} height={30}>
