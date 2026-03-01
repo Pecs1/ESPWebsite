@@ -11,7 +11,6 @@
 	Thanks to heroicons.dev for the icons used here.
 	*/
 
-	import L from 'leaflet';
 	import Leaflet from './Leaflet.svelte';
 	//	import Control from './Control.svelte';
 	import Marker from './Marker.svelte';
@@ -54,9 +53,9 @@
 	}
 
 	$: if (map && initialView) {
-        // This forces Leaflet to fly to the new coordinates
-        map.setView(initialView, map.getZoom()); 
-    }
+		// This forces Leaflet to fly to the new coordinates
+		map.setView(initialView, map.getZoom());
+	}
 </script>
 
 <svelte:window on:resize={resizeMap} />

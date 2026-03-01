@@ -34,8 +34,8 @@
 		}
 
 		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap'
-        }).addTo(map);
+			attribution: '© OpenStreetMap'
+		}).addTo(map);
 
 		return {
 			destroy() {
@@ -54,7 +54,7 @@
 	}
 </script>
 
-<div style="height:{height};width:{width}" use:createLeaflet>
+<div style="height:{height};width:{width};border-radius: 0.5rem" use:createLeaflet>
 	{#if map}
 		<slot {map} />
 	{/if}

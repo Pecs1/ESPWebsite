@@ -3,8 +3,8 @@
 	import Raw from '$lib/Raw.svelte';
 	import Geolocation from '$lib/Geolocation.svelte';
 
-	let latitude: number;
-	let longitude: number;
+	let latitude;
+	let longitude;
 	let speed;
 	let altitude;
 	let usedSats;
@@ -16,14 +16,14 @@
 </script>
 
 <Raw
-	bind:latitude={latitude}
-	bind:longitude={longitude}
-	bind:speed={speed}
-	bind:altitude={altitude}
-	bind:usedSats={usedSats}
-	bind:accuracy={accuracy}
-	bind:time={time}
-	bind:isActive={isActive}
+	bind:latitude
+	bind:longitude
+	bind:speed
+	bind:altitude
+	bind:usedSats
+	bind:accuracy
+	bind:time
+	bind:isActive
 />
 
 <Geolocation bind:initialView={sharedView} />
@@ -168,12 +168,12 @@
 		border-radius: 0.5rem;
 	}
 
-	.data-map {
+	/* .data-map {	// update configs in file://./../lib/Leaflet.svelte#57 at line 57
 		background-color: #2d3a4b;
 		border-radius: 0.5rem;
 		max-width: 100%;
 		max-height: 100%;
-	}
+	} */
 
 	.data-container :focus {
 		outline: none;
